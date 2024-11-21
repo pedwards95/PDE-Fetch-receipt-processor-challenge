@@ -1,0 +1,71 @@
+run:
+  timeout: 10m
+  issues-exit-code: 1
+  tests: false
+  concurrency: 4
+  allow-parallel-runners: true
+
+output:
+  formats:
+    - format: colored-line-number
+
+linters:
+  disable-all: true
+  enable:
+    - gofmt
+    - goimports
+    - errcheck
+    - revive
+    - govet
+    - misspell
+
+linters-settings:
+  gofmt:
+    simplify: true
+  goimports:
+    local-prefixes: github.com/org/project
+  errcheck:
+    check-type-assertions: true
+    check-blank: false
+  misspell:
+    locale: US
+  revive:
+    ignore-generated-header: true
+    severity: warning
+    min-confidence: 0.8
+    rules:
+    - name: empty-block
+    - name: blank-imports
+    - name: context-as-argument
+    - name: context-keys-type
+    - name: dot-imports
+    - name: error-return
+    - name: error-strings
+    - name: error-naming
+    - name: exported
+    - name: increment-decrement
+    - name: var-declaration
+    - name: range
+    - name: receiver-naming
+    - name: time-naming
+    - name: unexported-return
+    - name: indent-error-flow
+    - name: errorf
+  govet:
+    shadow: true
+    settings:
+      printf:
+        funcs:
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Infof
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Warnf
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Errorf
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Fatalf
+
+issues:
+  exclude-use-default: false
+  max-per-linter: 0
+  max-same: 0
+  exclude-files:
+    - wire_gen.go
+  exclude-dirs:
+    - mocks

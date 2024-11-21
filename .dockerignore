@@ -1,0 +1,7 @@
+# core
+bin
+build
+.git
+
+# misc
+assignment.txt
