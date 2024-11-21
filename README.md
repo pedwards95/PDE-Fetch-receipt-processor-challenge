@@ -1,7 +1,7 @@
 # PDE-Fetch-receipt-processor-challenge
 Public API application for Fetch Software Engineer Position
 
-To run locally (No Docker):
+## To run locally (No Docker):
 1. Navigate to root directory (same directory where this readme is)
 2. Input into terminal:
 ```
@@ -14,7 +14,7 @@ bin/PDE-Fetch-receipt-processor-challenge
 4. Send requests to localhost:8080
 
 
-To run locally (With Docker):
+## To run locally (With Docker):
 1. Navigate to root directory (same directory where this readme is)
 2. Input into terminal:
 ```
